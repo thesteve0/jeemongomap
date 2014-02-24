@@ -68,11 +68,5 @@ public class DBConnection {
 	public DB getDB(){
 		return mongoDB;
 	}
-	
-	public String getMessage(){
-		return test;
-	}
-	
-	  
 
 }
