@@ -97,10 +97,10 @@ public class ParkWS {
 		ArrayList posList = new ArrayList();
 		ArrayList firstPair = new ArrayList();
 		ArrayList secondPair = new ArrayList();
-		firstPair.add(new Float(lon1));
-		firstPair.add(new Float(lat1));
-		secondPair.add(new Float(lon2));
-		secondPair.add(new Float(lat2));
+		firstPair.add(new Float(lon2));
+		firstPair.add(new Float(lat2));
+		secondPair.add(new Float(lon1));
+		secondPair.add(new Float(lat1));
 		
 		posList.add(firstPair);
 		posList.add(secondPair);
