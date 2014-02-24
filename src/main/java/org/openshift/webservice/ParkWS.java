@@ -37,9 +37,10 @@ public class ParkWS {
 	
 	private HashMap processPark(DBObject incoming){
 		HashMap holder = new HashMap<String, Object>();
-		holder.put("name",dataValue.get("Name"));
-		holder.put("position", dataValue.get("pos"));
-		holder.put("id", dataValue.get("_id").toString());
+		holder.put("name",incoming.get("Name"));
+		holder.put("position", incoming.get("pos"));
+		holder.put("id", incoming.get("_id").toString());
+		return holder;
 
 		
 	}
@@ -108,9 +109,6 @@ public class ParkWS {
 		boxQuery.put("$box", posList);
 		
 		spatialQuery.put("pos", new BasicDBObject("$within", boxQuery));
-		
-		System.out.println("within spatial query: " + spatialQuery.toString());
-		
 		
 		DBCursor cursor = parkListCollection.find(spatialQuery);
 		try {
@@ -182,9 +180,6 @@ public class ParkWS {
 		posList.add(new Float(lon));
 		posList.add(new Float(lat));
 		wholeQuery.put("pos", new BasicDBObject("$near", posList));
-		
-		
-		System.out.println("whole query: " + wholeQuery.toString());
 		
 		
 		DBCursor cursor = parkListCollection.find(wholeQuery);
